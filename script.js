@@ -79,6 +79,8 @@ const tanah = document.querySelectorAll('.tanah');
     let selesai;
     let skor;
 
+    
+
     function randomTanah(tanah) {
       const t = Math.floor(Math.random() * tanah.length);
       const tTerpilih = tanah[t];
