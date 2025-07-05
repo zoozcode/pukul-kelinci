@@ -64,7 +64,7 @@ document.getElementById("mulai").addEventListener("click", () => {
       skor = 0;
       papanSkor.textContent = 0;
       munculkanTikus();
-      setTimeout(() => selesai = true, 10000);
+      setTimeout(() => selesai = true, 20000);
     }
 
     function pukul() {
