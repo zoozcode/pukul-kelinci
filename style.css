@@ -71,9 +71,9 @@ button{
 
 @media (max-width: 768px){
     .container{
-        width: 50%;
+        width: 46%;
     float: left;
-    margin: auto;
+    margin-left: 2%;
     }
     .tanah{
     width:150px;
