@@ -1,75 +1,3 @@
-// const tanah = document.querySelectorAll('.tanah');
-// const tikus = document.querySelectorAll('.tikus');
-
-// let tanahSebelumnya
-
-// function randomTanah(tanah){
-//     const t = Math.floor(Math.random() * tanah.length);
-//     const tRandom = tanah[t];
-//     if( tRandom == tanahSebelumnya){
-//         randomTanah(tanah);
-//     }
-//     tanahSebelumnya = tRandom;
-
-//     return tRandom;
-// }
-
-// function randomWaktu(min, max){
-//     return Math.round(Math.random() * (max - min) + min);
-// }
-
-// function munculkanTikus(tanah){
-//     const tRandom = randomTanah(tanah);
-//     const wRandom = randomWaktu(300, 1500);
-//     tRandom.classList.add('muncul');
-
-//     setTimeout(() => {
-//         tRandom.classList.remove('muncul');
-//         munculkanTikus();
-//      }, wRandom);
-// }
-
-// munculkanTikus(tanah); 
-
-
-
-
-// window.onload = function () {
-//   const tanah = document.querySelectorAll('.tanah');
-//   const tikus = document.querySelectorAll('.tikus');
-
-//   let tanahSebelumnya;
-
-//   function randomTanah(tanah) {
-//     const t = Math.floor(Math.random() * tanah.length);
-//     const tRandom = tanah[t];
-//     if (tRandom == tanahSebelumnya) {
-//       return randomTanah(tanah);
-//     }
-//     tanahSebelumnya = tRandom;
-//     return tRandom;
-//   }
-
-//   function randomWaktu(min, max) {
-//     return Math.round(Math.random() * (max - min) + min);
-//   }
-
-//   function munculkanTikus(tanah) {
-//     const tRandom = randomTanah(tanah);
-//     const wRandom = randomWaktu(300, 1500);
-//     tRandom.classList.add('muncul');
-
-//     setTimeout(() => {
-//       tRandom.classList.remove('muncul');
-//       munculkanTikus(tanah);
-//     }, wRandom);
-//   }
-
-//   munculkanTikus(tanah); // ← jalankan setelah semuanya siap
-// };
-
-
-
 const tanah = document.querySelectorAll('.tanah');
     const tikus = document.querySelectorAll('.tikus');
     const papanSkor = document.querySelector('.papan-skor');
@@ -79,7 +7,32 @@ const tanah = document.querySelectorAll('.tanah');
     let selesai;
     let skor;
 
-    
+   let score = 0;
+let highScore = parseInt(localStorage.getItem("highScore")) || 0;
+document.getElementById("highScore").textContent = highScore;
+
+function mukulIbnu() {
+    score++;
+    document.querySelector(".papan-skor").textContent = score;
+
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("highScore", highScore);
+        document.getElementById("highScore").textContent = highScore;
+    }
+
+    console.log("Score:", score, "| High Score:", highScore);
+}
+
+document.getElementById("mulai").addEventListener("click", () => {
+    score = 0;
+    document.querySelector(".papan-skor").textContent = score;
+
+    // Ambil high score terbaru dari localStorage dan update tampilan
+    highScore = parseInt(localStorage.getItem("highScore")) || 0;
+    document.getElementById("highScore").textContent = highScore;
+});
+
 
     function randomTanah(tanah) {
       const t = Math.floor(Math.random() * tanah.length);
@@ -111,7 +64,7 @@ const tanah = document.querySelectorAll('.tanah');
       skor = 0;
       papanSkor.textContent = 0;
       munculkanTikus();
-      setTimeout(() => selesai = true, 50000);
+      setTimeout(() => selesai = true, 10000);
     }
 
     function pukul() {
@@ -124,3 +77,9 @@ const tanah = document.querySelectorAll('.tanah');
 
     tikus.forEach(t => t.addEventListener('click', pukul));
     document.getElementById('mulai').addEventListener('click', mulai);
+
+    // Tambahkan event click ke semua tikus
+// const tikus = document.querySelectorAll('.tikus');
+tikus.forEach(t => {
+    t.addEventListener('click', mukulIbnu);
+});
