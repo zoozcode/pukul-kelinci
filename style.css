@@ -62,7 +62,7 @@ button{
 }
 
 .tanah.muncul .tikus{
-    top: -10px;
+    top: 0px;
    
       display: block;
   
@@ -70,10 +70,14 @@ button{
 
 
 @media (max-width: 768px){
+    .wrapper{
+        width: 90%;
+        margin-left: 5%;
+    }
     .container{
-        width: 46%;
+        width: 50%;
     float: left;
-    margin-left: 4%;
+    /* margin-left: 4%; */
     }
     .tanah{
     width:150px;
@@ -101,5 +105,12 @@ button{
     left: 10%;
     position: absolute;
     top: 80px;
+}
+
+.tanah.muncul .tikus{
+    top: 5px;
+   
+      display: block;
+  
 }
 }
