@@ -92,16 +92,33 @@ dotlottie-player {
     }
     .game dotlottie-player{
         position: absolute;
-        width: 200px;
-        height: 200px;
-        margin-top: -300px;
-        margin-left: 100px;
+        width: 50px;
+        height: 50px;
+        margin-top: -400px;
+        margin-left: -20px;
     }
 
     button{
-        margin-left: 220px;
+        margin-left: 20px;
     }
     .tulisan{
-       width: 80%;
+       width: 60%;
     }
+
+    h2{
+        font-size: 30px;
+        margin-left: 10px;
+    }
+
+    h3{
+        font-size: 15px;
+        margin-left: 10px;
+    }
+
+    .wrapper img{
+        margin-left: 160px;
+        margin-top: -180px;
+        width: 60px;
+    }
+
 }
