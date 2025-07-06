@@ -1,4 +1,4 @@
-    const tanah = document.querySelectorAll('.tanah');
+  const tanah = document.querySelectorAll('.tanah');
     const tikus = document.querySelectorAll('.tikus');
     const papanSkor = document.querySelector('.papan-skor');
     const pop = document.querySelector('#pop');
@@ -16,21 +16,17 @@ let highScore = parseInt(localStorage.getItem("highScore")) || 0;
 document.getElementById("highScore").textContent = highScore;
 
 function mukulIbnu() {
-  score++;
-  // document.getElementById("skor").textContent = score;
-  document.getElementById("skor").textContent = score;
+    score++;
+    document.querySelector(".papan-skor").textContent = score;
 
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("highScore", highScore);
+        document.getElementById("highScore").textContent = highScore;
+    }
 
-  if (score > highScore) {
-    highScore = score;
-    localStorage.setItem("highScore", highScore);
-    document.getElementById("highScore").textContent = highScore;
-  }
-
-  console.log("Score:", score, "| High Score:", highScore);
+    console.log("Score:", score, "| High Score:", highScore);
 }
-
-
 
 function mulaiTimer() {
     clearInterval(timerInterval);
@@ -66,21 +62,22 @@ document.getElementById("tutupModal").addEventListener("click", () => {
 
 
 document.getElementById("mulai").addEventListener("click", () => {
-  score = 0;
-  document.getElementById("skor").textContent = score; // ✅ FIX
+    score = 0;
+    document.querySelector(".papan-skor").textContent = score;
 
-  const waktuSelect = document.getElementById("waktu");
-  if (waktuSelect) {
-    waktuMain = parseInt(waktuSelect.value);
-  }
+    // ambil dari select jika pakai dropdown
+    const waktuSelect = document.getElementById("waktu");
+    if (waktuSelect) {
+        waktuMain = parseInt(waktuSelect.value);
+    }
 
-  highScore = parseInt(localStorage.getItem("highScore")) || 0;
-  document.getElementById("highScore").textContent = highScore;
+    // update tampilan awal
+    highScore = parseInt(localStorage.getItem("highScore")) || 0;
+    document.getElementById("highScore").textContent = highScore;
 
-  mulaiTimer();
-  mulai();
+    mulaiTimer();
+    mulai(); // fungsi mulai permainan yang kamu punya
 });
-
 
 
     function randomTanah(tanah) {
