@@ -1,4 +1,4 @@
-  const tanah = document.querySelectorAll('.tanah');
+const tanah = document.querySelectorAll('.tanah');
     const tikus = document.querySelectorAll('.tikus');
     const papanSkor = document.querySelector('.papan-skor');
     const pop = document.querySelector('#pop');
@@ -17,7 +17,7 @@ document.getElementById("highScore").textContent = highScore;
 
 function mukulIbnu() {
     score++;
-    document.querySelector(".papan-skor").textContent = score;
+    document.querySelector( ".papan-skor").textContent = score;
 
     if (score > highScore) {
         highScore = score;
