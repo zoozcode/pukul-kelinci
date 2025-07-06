@@ -1,4 +1,4 @@
-const tanah = document.querySelectorAll('.tanah');
+    const tanah = document.querySelectorAll('.tanah');
     const tikus = document.querySelectorAll('.tikus');
     const papanSkor = document.querySelector('.papan-skor');
     const pop = document.querySelector('#pop');
@@ -7,31 +7,80 @@ const tanah = document.querySelectorAll('.tanah');
     let selesai;
     let skor;
 
+    let waktuMain = 30;
+let timerInterval;
+let waktuSelesai;
+
    let score = 0;
 let highScore = parseInt(localStorage.getItem("highScore")) || 0;
 document.getElementById("highScore").textContent = highScore;
 
 function mukulIbnu() {
-    score++;
-    document.querySelector(".papan-skor").textContent = score;
+  score++;
+  // document.getElementById("skor").textContent = score;
+  document.getElementById("skor").textContent = score;
 
-    if (score > highScore) {
-        highScore = score;
-        localStorage.setItem("highScore", highScore);
-        document.getElementById("highScore").textContent = highScore;
-    }
 
-    console.log("Score:", score, "| High Score:", highScore);
+  if (score > highScore) {
+    highScore = score;
+    localStorage.setItem("highScore", highScore);
+    document.getElementById("highScore").textContent = highScore;
+  }
+
+  console.log("Score:", score, "| High Score:", highScore);
 }
 
-document.getElementById("mulai").addEventListener("click", () => {
-    score = 0;
-    document.querySelector(".papan-skor").textContent = score;
 
-    // Ambil high score terbaru dari localStorage dan update tampilan
-    highScore = parseInt(localStorage.getItem("highScore")) || 0;
-    document.getElementById("highScore").textContent = highScore;
+
+function mulaiTimer() {
+    clearInterval(timerInterval);
+    let waktu = waktuMain;
+    const timerEl = document.getElementById("timer");
+    if (timerEl) timerEl.textContent = `${waktu} detik`;
+
+    timerInterval = setInterval(() => {
+        waktu--;
+        if (timerEl) timerEl.textContent = `${waktu} detik`;
+
+        if (waktu <= 0) {
+            clearInterval(timerInterval);
+            clearTimeout(waktuSelesai);
+            // alert("Waktu habis! Skor akhir: " + score);
+            tampilkanModalSkorAkhir(score); // Ganti alert
+        }
+    }, 1000);
+}
+
+
+
+function tampilkanModalSkorAkhir(score) {
+    const modal = document.getElementById("skorAkhirModal");
+    const nilai = document.getElementById("nilaiAkhir");
+    nilai.textContent = score;
+    modal.style.display = "flex";
+}
+
+document.getElementById("tutupModal").addEventListener("click", () => {
+    document.getElementById("skorAkhirModal").style.display = "none";
 });
+
+
+document.getElementById("mulai").addEventListener("click", () => {
+  score = 0;
+  document.getElementById("skor").textContent = score; // ✅ FIX
+
+  const waktuSelect = document.getElementById("waktu");
+  if (waktuSelect) {
+    waktuMain = parseInt(waktuSelect.value);
+  }
+
+  highScore = parseInt(localStorage.getItem("highScore")) || 0;
+  document.getElementById("highScore").textContent = highScore;
+
+  mulaiTimer();
+  mulai();
+});
+
 
 
     function randomTanah(tanah) {
@@ -64,7 +113,7 @@ document.getElementById("mulai").addEventListener("click", () => {
       skor = 0;
       papanSkor.textContent = 0;
       munculkanTikus();
-      setTimeout(() => selesai = true, 20000);
+      setTimeout(() => selesai = true, 30000);
     }
 
     function pukul() {

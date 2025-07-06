@@ -5,14 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>game pukul</title>
     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <h1 style="font-size: 20px;">pukul ibnu</h1>
+    <!-- <h1 style="font-size: 20px;">pukul ibnu</h1> -->
     <!-- <button type="button" class="mulai" onclick="munculkanTikus()">mulai</button> -->
 
   <button id="mulai">Mulai</button>
-  <h2 style="font-size: 10px;">High Score: <span id="highScore">0</span></h2>
-  <h2 class="papan-skor" style="font-size: 12px;">score: 0</h2>
+
+  <div class="just">
+
+ <h2 style="font-size: 12px;">
+  <i class="fa-solid fa-clock"></i>
+  <span id="timer"> 30 detik</span>
+</h2>
+
+ <h2 class="papan-skor" style="font-size: 12px;">
+  Skor: <span id="skor">0</span>
+</h2>
+
+
+  <!-- <h2 style="font-size: 12px;"><i class="fa-solid fa-clock"><span id="timer"> 30 detik</span></i> </h2> -->
+   
+
+<h2 style="font-size: 12px;">High Skor: <span id="highScore">0</span></h2>
+
+
+<div id="skorAkhirModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">GAME PUKUL KELINCI</div>
+    <div class="modal-title">SKOR AKHIR</div>
+    <div class="modal-score" id="nilaiAkhir">0</div>
+    <button id="tutupModal">CLOSE</button>
+  </div>
+</div>
+
+ </div>
+
+
+  <!-- <select id="waktu">
+  <option value="15"><span id="timer">21detik</span>15detik</option>
+  <option value="21" selected>21detik</option>
+  <option value="30">30detik</option>
+</select> -->
 
   
   
