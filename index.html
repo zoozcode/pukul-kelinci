@@ -3,86 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>game pukul</title>
+    <title>game pukul kelinci</title>
+        <link rel="icon" type="image/x-icon" href="image/klc.png">
     <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 </head>
 <body>
-    <!-- <h1 style="font-size: 20px;">pukul ibnu</h1> -->
-    <!-- <button type="button" class="mulai" onclick="munculkanTikus()">mulai</button> -->
-
-  <button id="mulai">Mulai</button>
-
-  <div class="just">
-
- <h2 style="font-size: 12px;">
-  <i class="fa-solid fa-clock"></i>
-  <span id="timer"> 30 detik</span>
-</h2>
-  
-  <h2 class="papan-skor" style="font-size: 12px;"><span>skor:</span> 0</h2>
-
-  <!-- <h2 style="font-size: 12px;"><i class="fa-solid fa-clock"><span id="timer"> 30 detik</span></i> </h2> -->
-   
-
-<h2 style="font-size: 12px;">High Skor: <span id="highScore">0</span></h2>
-
-
-<div id="skorAkhirModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">GAME PUKUL KELINCI</div>
-    <div class="modal-title">SKOR AKHIR</div>
-    <div class="modal-score" id="nilaiAkhir">0</div>
-    <button id="tutupModal">CLOSE</button>
-  </div>
-</div>
-
- </div>
-
-
-  <!-- <select id="waktu">
-  <option value="15"><span id="timer">21detik</span>15detik</option>
-  <option value="21" selected>21detik</option>
-  <option value="30">30detik</option>
-</select> -->
-
-  
-  
-  <div class="wrapper">
-
- 
-    <div class="container">
-        <div class="tanah">
-            <div class="tikus"></div>
+    <div class="wrapper">
+        <div class="tulisan">
+           <h2>PUKUL <br> KELINCI</h2>
+           <h3>GAME DEVELOPER</h3>
+           <img src="image/klc.png" alt="">
+           <button class="bt"><a href="kelinci.html">MASUK GAME</a></button> <br>
+           <button class="bt2">PERATURAN</button>
+        </div>
+        <div class="game">
+            <dotlottie-player
+            src="https://lottie.host/7c66976f-7d66-466f-b7e5-285e4bb94ec4/z3u1AsaIeg.lottie"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            ></dotlottie-player>
         </div>
     </div>
-    <div class="container">
-        <div class="tanah">
-            <div class="tikus"></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="tanah">
-            <div class="tikus"></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="tanah">
-            <div class="tikus"></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="tanah">
-            <div class="tikus"></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="tanah">
-            <div class="tikus"></div>
-        </div>
-    </div>
-     </div>
 </body>
-<audio src="image/whosh.mp3" id="pop"></audio>
-<script src="script.js"></script>
 </html>
